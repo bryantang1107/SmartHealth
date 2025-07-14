@@ -1,0 +1,13 @@
+@media (orientation: landscape), (max-width: 860px) {
+  .sidebar-slider {
+    overflow-y: scroll;
+    &::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border: 4px solid transparent;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  }
+}

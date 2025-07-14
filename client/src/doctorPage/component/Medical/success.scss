@@ -1,0 +1,129 @@
+.success-page {
+  width: 30%;
+  margin: auto;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  box-shadow: var(--dark-shadow);
+  padding: 2em;
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .success-logo {
+    font-size: 3rem;
+    color: #9acd32;
+  }
+  h4 {
+    color: #9acd32;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.calendar {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 2em;
+  box-shadow: var(--dark-shadow);
+  .rbc-time-content {
+    &::-webkit-scrollbar-thumb {
+      background-clip: padding-box;
+      border: 4px solid transparent;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background: transparent;
+      cursor: pointer;
+    }
+  }
+}
+
+.date {
+  display: flex;
+  justify-content: space-around;
+  background: #c4c4c46c;
+  padding: 2em;
+  border-radius: 10px;
+  width: 70%;
+  margin: auto;
+  margin-top: 2em;
+}
+
+.add-schedule-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title-input {
+    width: 50%;
+    border: none;
+    padding: 1em;
+  }
+}
+
+.file-input {
+  text-transform: none;
+  width: 100%;
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  position: relative;
+  &:hover {
+    background: #b3c3df;
+    color: #000;
+    transition: all 0.5s ease-in-out;
+  }
+  &::before,
+  &::after {
+    --tooltip-color: #98d4d6;
+    --arrow-size: 10px;
+
+    position: absolute;
+    bottom: -0.35rem;
+    left: 50%;
+    --scale: 0;
+
+    transform: translateX((-50%)) translateY(var(--translate-y, 0))
+      scale(var(--scale));
+    transition: transform 0.2s ease-in;
+    transform-origin: top center;
+  }
+
+  &::before {
+    --translate-y: calc(100% + var(--arrow-size));
+    font-size: 0.8rem;
+    content: attr(data-tooltip);
+    padding: 0.8rem;
+    width: max-content;
+    border-radius: 20px;
+    text-align: center;
+
+    background: var(--tooltip-color);
+  }
+  &:hover::before,
+  &:hover::after {
+    --scale: 1;
+  }
+  &::after {
+    //arrow
+    --translate-y: var(--arrow-size);
+    content: "";
+    border: var(--arrow-size) solid transparent;
+    border-bottom-color: var(--tooltip-color);
+    transform-origin: bottom center;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
